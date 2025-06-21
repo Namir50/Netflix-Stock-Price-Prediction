@@ -14,5 +14,21 @@ scaler = pickle.load(open('model/Scaler model.pkl','rb'))
 def index():
     return render_template('index.html')
 
+@app.route('/predictdata',methods = ['GET','POST'])
+def predictdatapoint():
+    if request.method == 'POST':
+        open = float(request.form.get('Open'))
+        high = float(request.form.get('High'))
+        low = float(request.form.get('Low'))
+        year = int(request.form.get('year'))
+        month = int(request.form.get('month'))
+        day = int(request.form.get('day'))
+        
+        scaled_data = scaler.transform([[open,high,low,year,month,day]])
+        result = model.predict(scaled_data)
+        
+        return render_template('home.html', result = result[0])
+    
+
 if __name__ == '__main__':
     app.run(debug=True)
