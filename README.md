@@ -6,7 +6,13 @@ This is an **end-to-end Machine Learning project** that predicts the **future cl
 The application takes user inputs like Open, High, Low prices and Date (year, month, day), and returns a predicted Close price for that day.
 
 ---
+### 🏠 Homepage
+![Homepage](https://drive.google.com/uc?export=view&id=1-2nqnumbiDwhjXgGQQ_0dmimG0n_3InL)
 
+### 📈 Prediction Page
+![Prediction Page](https://drive.google.com/uc?export=view&id=1hOeHei6CK-IUcQ3Fy09270P_62RubKPW)
+
+---
 ## 🚀 Features
 
 - 🧠 **Lasso Regression** model trained on historical stock data
