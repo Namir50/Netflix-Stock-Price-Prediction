@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Prediction</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Price Prediction</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+
+    .login {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px black;
+      text-align: center;
+    }
+
+    .login h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    input[type="text"] {
+      width: 250px;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #e50914;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    }
+
+    button:hover {
+      background-color: #b20710;
+    }
+
+    h2 {
+      margin-top: 20px;
+      color: #ff0000;
+    }
+  </style>
 </head>
 <body>
-    <div class = 'login'>
-        <h1>Predict the price of Netflix Stock</h1>
-        <form action="{{url_for('predictdatapoint')}}" method="POST">
-            <input type = 'text' name = 'Open' placeholder = 'Open' required /><br>
-            <input type = 'text' name = 'High' placeholder= 'High' required/><br>
-            <input type = 'text' name = 'Low' placeholder= 'Low' required/><br>
-            <input type = 'text' name = 'year' placeholder= 'year' required/><br>
-            <input type = 'text' name = 'month' placeholder= 'month' required/><br>
-            <input type = 'text' name = 'day' placeholder= 'day' required/><br>
-
-            <button type = "submit" class = "btn btn-primary btn-block btn-large">Predict</button>
-        </form>
-        <h2>The Predicted Close price is ${{result}}</h2>
-    </div>
-    
+  <div class="login">
+    <h1>Predict the price of Netflix Stock</h1>
+    <form action="{{ url_for('predictdatapoint') }}" method="POST">
+      <input type="text" name="Open" placeholder="Open" required /><br>
+      <input type="text" name="High" placeholder="High" required /><br>
+      <input type="text" name="Low" placeholder="Low" required /><br>
+      <input type="text" name="year" placeholder="Year" required /><br>
+      <input type="text" name="month" placeholder="Month" required /><br>
+      <input type="text" name="day" placeholder="Day" required /><br>
+      <button type="submit">Predict</button>
+    </form>
+    {% if result %}
+    <h2>The Predicted Close Price is: ${{ result }}</h2>
+    {% endif %}
+  </div>
 </body>
 </html>

@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Stock Price Prediction</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix Stock Price Prediction</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      transform: translateY(-30px);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    a {
+      text-decoration: none;
+      background-color: #e50914;
+      color: white;
+      padding: 12px 24px;
+      margin-top: -30px;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    a:hover {
+      background-color: #b20710;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to the Netflix Stock Price Prediction App</h1>
-    <a href="{{url_for('predictdatapoint')}}">Go to Prediction page</a>
+  <h1>Welcome to the Netflix Stock Price Prediction App</h1>
+  <a href="{{ url_for('predictdatapoint') }}">Go to Prediction Page</a>
 </body>
 </html>
