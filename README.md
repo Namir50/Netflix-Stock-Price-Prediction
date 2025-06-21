@@ -42,6 +42,6 @@ The application takes user inputs like Open, High, Low prices and Date (year, mo
 | Data Handling     | Pandas, NumPy            |
 | Scaling           | StandardScaler           |
 | Frontend          | HTML, CSS (Jinja2)       |
-| Deployment Ready  | Azure / Render / Heroku  |
+
 
 ---
