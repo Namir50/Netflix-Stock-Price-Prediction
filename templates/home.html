@@ -14,7 +14,7 @@
       padding: 0;
       height: 100%;
       width: 100%;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       overflow-x: hidden; /* 🔧 Fix white line issue */
       overflow: hidden;
     }
@@ -90,14 +90,25 @@
         opacity: 1;
       }
     }
+  .back-link {
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #865f5f;
+    color: rgb(0, 0, 0);
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  }
 
-    .back-link {
-      display: inline-block;
-      margin-top: 10px;
-      color: #ffffff;
-      font-size: 14px;
-      text-decoration: underline;
-    }
+  .back-link:hover {
+    background-color: #ffffff;
+  }
 
     /* 📱 Responsive Adjustments */
     @media (max-width: 800px) {
@@ -146,7 +157,7 @@
     {% if result %}
       <h2>The Predicted Close Price is: ${{ result }}</h2>
     {% endif %}
-    <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+    <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
   </div>
 </body>
 </html>
