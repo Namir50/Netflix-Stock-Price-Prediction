@@ -6,38 +6,49 @@
   <title>Netflix Stock Price Prediction</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
-      height: 100%; 
       margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
       font-family: 'Poppins', sans-serif;
+      overflow-x: hidden; /* 🔧 Prevent horizontal scroll */
     }
 
     body {
-    background: url("{{ url_for('static', filename='images/background.jpg') }}") ;
-    background-size: cover;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    position: relative;
+      background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat left center;
+      background-size: cover;
+      background-attachment: scroll; /* fallback */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-
 
     /* Dark overlay */
     body::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       height: 100%;
-      width: 100%;
+      width: 100%; /* Optional: darken for readability */
       z-index: 1;
     }
 
     .content {
       z-index: 2;
       text-align: center;
+      padding: 20px;
+      max-width: 90%;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -58,7 +69,6 @@
       background-color: #e50914;
       color: white;
       padding: 12px 24px;
-      margin-top: -30px;
       border-radius: 5px;
       font-size: 18px;
       transition: background-color 0.3s ease;
@@ -71,16 +81,15 @@
       background-color: #b20710;
     }
 
-    /* Logo */
     .logo {
       position: absolute;
       top: 20px;
       left: 20px;
       z-index: 2;
       height: 70px;
+      max-width: 90%;
     }
 
-    /* Footer */
     footer {
       position: absolute;
       bottom: 10px;
@@ -94,6 +103,41 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 📱 Responsive Adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      a {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+
+      .logo {
+        height: 50px;
+      }
+
+      footer {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      a {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+      }
     }
   </style>
 </head>

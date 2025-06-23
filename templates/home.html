@@ -5,30 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Netflix Price Prediction</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden; /* 🔧 Fix white line issue */
       overflow: hidden;
     }
 
     body {
-      background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat center center fixed;
+      background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat center center;
       background-size: cover;
-      font-family: Arial, sans-serif;
+      background-color: #000; /* fallback color */
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       color: white;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
 
     .login {
-      background-color: rgba(0, 0, 0, 0.7);
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 10px black;
       text-align: center;
+      max-width: 400px;
+      width: 90%;
     }
 
     .login h1 {
@@ -37,7 +47,7 @@
     }
 
     input[type="text"] {
-      width: 250px;
+      width: 100%;
       padding: 10px;
       margin: 8px 0;
       border: none;
@@ -55,6 +65,7 @@
       cursor: pointer;
       margin-top: 15px;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+      width: 100%;
     }
 
     button:hover {
@@ -62,31 +73,61 @@
     }
 
     h2 {
-    margin-top: 20px;
-    color: #c03434;
-    opacity: 0;
-    animation: slideFade 0.8s ease-out forwards;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      color: #c03434;
+      opacity: 0;
+      animation: slideFade 0.8s ease-out forwards;
     }
 
-    /* Animation definition */
     @keyframes slideFade {
-    0% {
+      0% {
         transform: translateY(20px);
         opacity: 0;
-    }
-    100% {
+      }
+      100% {
         transform: translateY(0px);
         opacity: 1;
-    }
+      }
     }
 
-    
     .back-link {
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 10px;
       color: #ffffff;
       font-size: 14px;
       text-decoration: underline;
+    }
+
+    /* 📱 Responsive Adjustments */
+    @media (max-width: 800px) {
+      body {
+        background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat left center !important;
+        background-size: cover !important;
+        overflow-x: hidden;
+      }
+
+      .login {
+        padding: 20px;
+      }
+
+      .login h1 {
+        font-size: 5.5vw;
+      }
+
+      h2 {
+        font-size: 5vw;
+      }
+
+      input[type="text"],
+      button {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .back-link {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -103,7 +144,7 @@
       <button type="submit">Predict</button>
     </form>
     {% if result %}
-    <h2>The Predicted Close Price is: ${{ result }}</h2>
+      <h2>The Predicted Close Price is: ${{ result }}</h2>
     {% endif %}
     <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
   </div>
