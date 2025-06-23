@@ -1,4 +1,4 @@
-# 🎬 Netflix Stock Price Predictor Web App
+# 🎬 Netflix Stock Price Prediction Web App
 
 ## 📘 Overview
 This is an **end-to-end Machine Learning project** that predicts the **future closing price of Netflix stock** using **Lasso Regression**. The project includes all stages of a production ML pipeline: **data preprocessing, feature engineering, model experimentation**, and finally **web deployment** using **Flask**.
