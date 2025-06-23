@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for, session
 import pickle
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.secret_key = 'hello'
