@@ -114,15 +114,18 @@
   }
 
     /* 📱 Responsive Adjustments */
-      @media (max-width: 430px) {
+  @media (max-width: 430px) {
     body {
       background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat left center !important;
       background-size: cover !important;
       overflow-x: hidden;
+      justify-content: flex-start;   /* Align content toward top */
+      padding-top: 40px;             /* Space from top */
     }
 
     .login {
       padding: 20px;
+      margin-top: 0;
     }
 
     .login h1 {
@@ -131,7 +134,8 @@
 
     h2 {
       font-size: 1.2rem;
-      white-space: nowrap; /* Prevents line breaks on small screens */
+      white-space: nowrap;           /* Prevent text wrap */
+      text-align: center;            /* Center text */
     }
 
     input[type="text"],
